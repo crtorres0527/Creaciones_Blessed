@@ -1,0 +1,252 @@
+
+
+CREATE TABLE `clasificacion` (
+  `idClasificacion` int(11) NOT NULL AUTO_INCREMENT,
+  `Descripcion` varchar(45) NOT NULL,
+  PRIMARY KEY (`idClasificacion`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+INSERT INTO clasificacion VALUES("1","obsequios");
+INSERT INTO clasificacion VALUES("2","camisas");
+
+
+
+CREATE TABLE `inventario` (
+  `idInventario` int(11) NOT NULL AUTO_INCREMENT,
+  `CodigoProducto` int(11) NOT NULL,
+  `StockProducto` int(11) NOT NULL,
+  `salida` int(11) NOT NULL,
+  `Saldo` int(11) NOT NULL,
+  `Entrada` int(11) NOT NULL,
+  `idProducto` int(11) NOT NULL,
+  PRIMARY KEY (`idInventario`),
+  KEY `FK_Inventario_producto` (`idProducto`),
+  CONSTRAINT `FK_Inventario_producto` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+INSERT INTO inventario VALUES("1","1","100","8","25000","100","1");
+INSERT INTO inventario VALUES("2","2","50","2","35000","50","2");
+
+
+
+CREATE TABLE `pedidocabecera` (
+  `idPedidoCabecera` int(11) NOT NULL AUTO_INCREMENT,
+  `ClaveTransaccional` varchar(255) NOT NULL,
+  `PaypalDatos` text NOT NULL,
+  `Fecha` datetime NOT NULL,
+  `Correo` varchar(5000) NOT NULL,
+  `Total` decimal(60,2) NOT NULL,
+  `Status` varchar(200) NOT NULL,
+  PRIMARY KEY (`idPedidoCabecera`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+CREATE TABLE `pedidodetallado` (
+  `idPedidoDetallado` int(11) NOT NULL AUTO_INCREMENT,
+  `PrecioUnitario` decimal(20,2) NOT NULL,
+  `Cantidad` int(11) NOT NULL,
+  `Descargado` int(1) NOT NULL,
+  `idProducto` int(11) NOT NULL,
+  `idPedidoCabecera` int(11) NOT NULL,
+  PRIMARY KEY (`idPedidoDetallado`),
+  KEY `FK_Pedidodet_pedidoCabe` (`idPedidoCabecera`),
+  KEY `FK_Pedidodet_producto` (`idProducto`),
+  CONSTRAINT `FK_Pedidodet_pedidoCabe` FOREIGN KEY (`idPedidoCabecera`) REFERENCES `pedidocabecera` (`idPedidoCabecera`),
+  CONSTRAINT `FK_Pedidodet_producto` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+CREATE TABLE `persona` (
+  `idPersona` int(11) NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(45) NOT NULL,
+  `Apellido` varchar(45) NOT NULL,
+  `Telefono` bigint(45) NOT NULL,
+  `Direccion` varchar(45) NOT NULL,
+  `Correo_electornico` varchar(45) NOT NULL,
+  `idTipousuario` int(11) NOT NULL,
+  `User_name` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `NumeroDocumento` int(45) NOT NULL,
+  `idTipoDocumento` int(11) NOT NULL,
+  PRIMARY KEY (`idPersona`),
+  KEY `FK_Persona_Tipousuario` (`idTipousuario`),
+  KEY `FK_Persona_Tipodocumento` (`idTipoDocumento`),
+  CONSTRAINT `FK_Persona_Tipodocumento` FOREIGN KEY (`idTipoDocumento`) REFERENCES `tipodocumento` (`idTipoDocumento`),
+  CONSTRAINT `FK_Persona_Tipousuario` FOREIGN KEY (`idTipousuario`) REFERENCES `tipo_usuario` (`idTipousuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+INSERT INTO persona VALUES("1","Jhoan","Duarte","21381238","calle 75a#62-28","jhoan23425@hotmail.com","1","JhoanDuarte","92783","1015482112","1");
+INSERT INTO persona VALUES("2","Omar","Perez ","1241","calle 30# 13-8","omarstivenperez@hotmail.com","2","OmarPerez","1233","1015467840","1");
+
+
+
+CREATE TABLE `producto` (
+  `idProducto` int(11) NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(45) NOT NULL,
+  `Descripcion` varchar(45) NOT NULL,
+  `Precio` varchar(45) NOT NULL,
+  `Codigo` varchar(45) NOT NULL,
+  `idClasificacion` int(11) NOT NULL,
+  `Unidad` int(45) NOT NULL,
+  `Imagen` varchar(45) NOT NULL,
+  PRIMARY KEY (`idProducto`),
+  KEY `FK_Producto_clasificacion` (`idClasificacion`),
+  CONSTRAINT `FK_Producto_clasificacion` FOREIGN KEY (`idClasificacion`) REFERENCES `clasificacion` (`idClasificacion`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+INSERT INTO producto VALUES("1","Posillo Personalizado","15 globos en helio 1 Caja 50x50 CM Decoración","25000","1","1","1","");
+INSERT INTO producto VALUES("2","Camisa Personalizada","Arreglo de 80 rosas 1 Peluches 20 cm 1 Botell","35000","2","2","2","");
+
+
+
+CREATE TABLE `tipodocumento` (
+  `idTipoDocumento` int(11) NOT NULL AUTO_INCREMENT,
+  `Descripcion` varchar(45) NOT NULL,
+  PRIMARY KEY (`idTipoDocumento`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+INSERT INTO tipodocumento VALUES("1","Cedula");
+INSERT INTO tipodocumento VALUES("2","Tarjeta Identidad");
+INSERT INTO tipodocumento VALUES("3","Pasaporte");
+
+
+
+CREATE TABLE `tipo_usuario` (
+  `idTipousuario` int(11) NOT NULL AUTO_INCREMENT,
+  `Descripcion` varchar(45) NOT NULL,
+  PRIMARY KEY (`idTipousuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+INSERT INTO tipo_usuario VALUES("1","Administrador");
+INSERT INTO tipo_usuario VALUES("2","Usuario");
+
+
+
+CREATE TABLE `clasificacion` (
+  `idClasificacion` int(11) NOT NULL AUTO_INCREMENT,
+  `Descripcion` varchar(45) NOT NULL,
+  PRIMARY KEY (`idClasificacion`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+INSERT INTO clasificacion VALUES("1","obsequios");
+INSERT INTO clasificacion VALUES("2","camisas");
+
+
+
+CREATE TABLE `inventario` (
+  `idInventario` int(11) NOT NULL AUTO_INCREMENT,
+  `CodigoProducto` int(11) NOT NULL,
+  `StockProducto` int(11) NOT NULL,
+  `salida` int(11) NOT NULL,
+  `Saldo` int(11) NOT NULL,
+  `Entrada` int(11) NOT NULL,
+  `idProducto` int(11) NOT NULL,
+  PRIMARY KEY (`idInventario`),
+  KEY `FK_Inventario_producto` (`idProducto`),
+  CONSTRAINT `FK_Inventario_producto` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+INSERT INTO inventario VALUES("1","1","100","8","25000","100","1");
+INSERT INTO inventario VALUES("2","2","50","2","35000","50","2");
+
+
+
+CREATE TABLE `pedidocabecera` (
+  `idPedidoCabecera` int(11) NOT NULL AUTO_INCREMENT,
+  `ClaveTransaccional` varchar(255) NOT NULL,
+  `PaypalDatos` text NOT NULL,
+  `Fecha` datetime NOT NULL,
+  `Correo` varchar(5000) NOT NULL,
+  `Total` decimal(60,2) NOT NULL,
+  `Status` varchar(200) NOT NULL,
+  PRIMARY KEY (`idPedidoCabecera`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+CREATE TABLE `pedidodetallado` (
+  `idPedidoDetallado` int(11) NOT NULL AUTO_INCREMENT,
+  `PrecioUnitario` decimal(20,2) NOT NULL,
+  `Cantidad` int(11) NOT NULL,
+  `Descargado` int(1) NOT NULL,
+  `idProducto` int(11) NOT NULL,
+  `idPedidoCabecera` int(11) NOT NULL,
+  PRIMARY KEY (`idPedidoDetallado`),
+  KEY `FK_Pedidodet_pedidoCabe` (`idPedidoCabecera`),
+  KEY `FK_Pedidodet_producto` (`idProducto`),
+  CONSTRAINT `FK_Pedidodet_pedidoCabe` FOREIGN KEY (`idPedidoCabecera`) REFERENCES `pedidocabecera` (`idPedidoCabecera`),
+  CONSTRAINT `FK_Pedidodet_producto` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+CREATE TABLE `persona` (
+  `idPersona` int(11) NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(45) NOT NULL,
+  `Apellido` varchar(45) NOT NULL,
+  `Telefono` bigint(45) NOT NULL,
+  `Direccion` varchar(45) NOT NULL,
+  `Correo_electornico` varchar(45) NOT NULL,
+  `idTipousuario` int(11) NOT NULL,
+  `User_name` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `NumeroDocumento` int(45) NOT NULL,
+  `idTipoDocumento` int(11) NOT NULL,
+  PRIMARY KEY (`idPersona`),
+  KEY `FK_Persona_Tipousuario` (`idTipousuario`),
+  KEY `FK_Persona_Tipodocumento` (`idTipoDocumento`),
+  CONSTRAINT `FK_Persona_Tipodocumento` FOREIGN KEY (`idTipoDocumento`) REFERENCES `tipodocumento` (`idTipoDocumento`),
+  CONSTRAINT `FK_Persona_Tipousuario` FOREIGN KEY (`idTipousuario`) REFERENCES `tipo_usuario` (`idTipousuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+INSERT INTO persona VALUES("1","Jhoan","Duarte","21381238","calle 75a#62-28","jhoan23425@hotmail.com","1","JhoanDuarte","92783","1015482112","1");
+INSERT INTO persona VALUES("2","Omar","Perez ","1241","calle 30# 13-8","omarstivenperez@hotmail.com","2","OmarPerez","1233","1015467840","1");
+
+
+
+CREATE TABLE `producto` (
+  `idProducto` int(11) NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(45) NOT NULL,
+  `Descripcion` varchar(45) NOT NULL,
+  `Precio` varchar(45) NOT NULL,
+  `Codigo` varchar(45) NOT NULL,
+  `idClasificacion` int(11) NOT NULL,
+  `Unidad` int(45) NOT NULL,
+  `Imagen` varchar(45) NOT NULL,
+  PRIMARY KEY (`idProducto`),
+  KEY `FK_Producto_clasificacion` (`idClasificacion`),
+  CONSTRAINT `FK_Producto_clasificacion` FOREIGN KEY (`idClasificacion`) REFERENCES `clasificacion` (`idClasificacion`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+INSERT INTO producto VALUES("1","Posillo Personalizado","15 globos en helio 1 Caja 50x50 CM Decoración","25000","1","1","1","");
+INSERT INTO producto VALUES("2","Camisa Personalizada","Arreglo de 80 rosas 1 Peluches 20 cm 1 Botell","35000","2","2","2","");
+
+
+
+CREATE TABLE `tipo_usuario` (
+  `idTipousuario` int(11) NOT NULL AUTO_INCREMENT,
+  `Descripcion` varchar(45) NOT NULL,
+  PRIMARY KEY (`idTipousuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+INSERT INTO tipo_usuario VALUES("1","Administrador");
+INSERT INTO tipo_usuario VALUES("2","Usuario");
+
+
+
+CREATE TABLE `tipodocumento` (
+  `idTipoDocumento` int(11) NOT NULL AUTO_INCREMENT,
+  `Descripcion` varchar(45) NOT NULL,
+  PRIMARY KEY (`idTipoDocumento`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+INSERT INTO tipodocumento VALUES("1","Cedula");
+INSERT INTO tipodocumento VALUES("2","Tarjeta Identidad");
+INSERT INTO tipodocumento VALUES("3","Pasaporte");
+
