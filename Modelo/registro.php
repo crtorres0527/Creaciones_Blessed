@@ -12,7 +12,7 @@ if (isset($_POST['registrar'])){
       strlen($_POST['NumeroDocumento']) >= 1 &&
       strlen($_POST['correo']) >= 1){
        $usuario = trim($_POST['usuario']);
-       $password = trim($_POST['password']);
+       $pass_cifrado=password_hash($_POST['password'], PASSWORD_DEFAULT);
        $nombre = trim($_POST['nombre']);
        $apellido = trim($_POST['apellido']);
        $telefono = trim($_POST['telefono']);
@@ -21,7 +21,7 @@ if (isset($_POST['registrar'])){
        $correo = trim($_POST['correo']);
        $consulta = "INSERT INTO persona(Nombre, Apellido, Telefono, Direccion,
         Correo_electornico, idTipousuario, User_name, password,NumeroDocumento, idTipoDocumento) VALUES ('$nombre','$apellido',
-        '$telefono','$direccion','$correo','2','$usuario','$password','$NumeroDocumento', '1')";
+        '$telefono','$direccion','$correo','2','$usuario','$pass_cifrado','$NumeroDocumento', '1')";
        $resultado = mysqli_query($conexion, $consulta);
        if ($resultado){
            ?>
