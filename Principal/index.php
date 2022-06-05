@@ -102,7 +102,7 @@
               <div class="wow fadeInUp">
                 <div class="product-featured">
                   <div class="product-featured-figure"><img src="images/1.jpg" alt="" width="370" height="395"/>
-                    <div class="product-featured-button"><a class="button button-primary" href="typography.html">Ver mas</a></div>
+                    <div class="product-featured-button"><a class="button button-primary" href="catalogo.php">Ver mas</a></div>
                   </div>
                   <div class="product-featured-caption">
                     <h4><a class="product-featured-title" href="#">Detalle coronado</a></h4>
@@ -115,7 +115,7 @@
               <div class="wow fadeInUp">
                 <div class="product-featured">
                   <div class="product-featured-figure"><img src="images/2.jpg" alt="" width="320" height="400"/>
-                    <div class="product-featured-button"><a class="button button-primary" href="typography.html">Ver mas</a></div>
+                    <div class="product-featured-button"><a class="button button-primary" href="catalogo.php">Ver mas</a></div>
                   </div>
                   <div class="product-featured-caption">
                     <h4><a class="product-featured-title" href="#">Regalos en alturas</a></h4>
@@ -128,7 +128,7 @@
               <div class="wow fadeInUp">
                 <div class="product-featured">
                   <div class="product-featured-figure"><img src="images/3.jpg" alt="" width="320" height="395"/>
-                    <div class="product-featured-button"><a class="button button-primary" href="typography.html">Ver mas</a></div>
+                    <div class="product-featured-button"><a class="button button-primary" href="catalogo.php">Ver mas</a></div>
                   </div>
                   <div class="product-featured-caption">
                     <h4><a class="product-featured-title" href="#">Arcoiris de rosas</a></h4>
