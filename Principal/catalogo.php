@@ -73,7 +73,7 @@
           </div>
         </div>
       </section>
-      <!-- Base typography -->
+      <!-- Base catalogo -->
       <section class="section section-lg bg-default">
         <div class="container">
           <div class="row justify-content-center text-center">
@@ -89,7 +89,7 @@
               <div class="wow fadeInUp">
                 <div class="product-featured">
                   <div class="product-featured-figure"><img src="images/1.jpg" alt="" width="370" height="395"/>
-                    <div class="product-featured-button"><a class="button button-primary" href="#">Agregar Al Carrito</a></div>
+                  <div ><h5>Caja decorada on dulces, dos coronas y fotos </h5></div>
                   </div>
                   <div class="product-featured-caption">
                     <h4><a class="product-featured-title" href="#">Detalle coronado</a></h4>
@@ -102,7 +102,7 @@
               <div class="wow fadeInUp">
                 <div class="product-featured">
                   <div class="product-featured-figure"><img src="images/2.jpg" alt="" width="320" height="400"/>
-                    <div class="product-featured-button"><a class="button button-primary" href="#">Agregar Al Carrito</a></div>
+                  <div ><h5>Regalo alucido a pelicula Up: Una aventura de altura</h5></div>
                   </div>
                   <div class="product-featured-caption">
                     <h4><a class="product-featured-title" href="#">Regalos en alturas</a></h4>
@@ -115,7 +115,7 @@
               <div class="wow fadeInUp">
                 <div class="product-featured">
                   <div class="product-featured-figure"><img src="images/3.jpg" alt="" width="320" height="395"/>
-                    <div class="product-featured-button"><a class="button button-primary" href="#">Agregar Al Carrito</a></div>
+                  <div ><h5>Ramo de flores, con botella de vino a eleccion y peluche</h5></div>
                   </div>
                   <div class="product-featured-caption">
                     <h4><a class="product-featured-title" href="#">Arcoiris de rosas</a></h4>
@@ -135,7 +135,7 @@
                 <div class="wow fadeInUp">
                   <div class="product-featured">
                     <div class="product-featured-figure"><img src="images/4.jpg" alt="" width="370" height="395"/>
-                      <div class="product-featured-button"><a class="button button-primary" href="#">Agregar Al Carrito</a></div>
+                    <div ><h5>Caja con forma de corazon, acompañado con fresas de chacolates e rosas</h5></div>
                     </div>
                     <div class="product-featured-caption">
                       <h4><a class="product-featured-title" href="#">Corazon de rosas</a></h4>
@@ -148,7 +148,7 @@
                 <div class="wow fadeInUp">
                   <div class="product-featured">
                     <div class="product-featured-figure"><img src="images/5.jpg" alt="" width="320" height="300"/>
-                      <div class="product-featured-button"><a class="button button-primary" href="#">Agregar Al Carrito</a></div>
+                      <div ><h5>Caja de 20cmx20cm dulces y fotos</h5></div>
                     </div>
                     <div class="product-featured-caption">
                       <h4><a class="product-featured-title" href="#">Detalle sencillo</a></h4>
@@ -161,7 +161,7 @@
                 <div class="wow fadeInUp">
                   <div class="product-featured">
                     <div class="product-featured-figure"><img src="images/6.jpg" alt="" width="320" height="395"/>
-                      <div class="product-featured-button"><a class="button button-primary" href="#">Agregar Al Carrito</a></div>
+                    <div ><h5>Detalle con dulces,dos coronas y frase a elección</h5></div>
                     </div>
                     <div class="product-featured-caption">
                       <h4><a class="product-featured-title" href="#">detalle neo</a></h4>
@@ -169,8 +169,10 @@
                     </div>
                   </div>
                 </div>
+                <a class="button button-primary"  href="Compra.php">Comprar productos</a></div>
               </div>
             </div>
+
       </section>
  
  
