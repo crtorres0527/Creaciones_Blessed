@@ -172,7 +172,6 @@
                 <a class="button button-primary"  href="Compra.php">Comprar productos</a></div>
               </div>
             </div>
-
       </section>
  
  

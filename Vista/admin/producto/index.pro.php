@@ -17,8 +17,8 @@
                 if(isset($_GET['mensaje']) and $_GET['mensaje'] =='falta'){
             ?>
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Error</strong> Verifica todos los campos.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <strong>Error</strong> Verifica todos los campos.
             </div>
             <?php
                 }
@@ -89,7 +89,6 @@
                         <th scope="col">Codigo</th>
                         <th scope="col">Clasif</th>
                         <th scope="col"> Unidad</th>
-                        <th scope="col">Imagen</th>
                         <th scope="col" colspan="2">Acciones</th>
                         
                 </thead>
@@ -106,7 +105,6 @@
                         <td scope="row"><?php echo $dato -> Codigo; ?></td>
                         <td scope="row"><?php echo $dato -> Descripcion; ?></td>                       
                         <td scope="row"><?php echo $dato -> Unidad; ?></td>
-                        <td><img width="100" src="data:png;base64,<?php echo  base64_encode($row['imagen']); ?>"></td>
                         <td ><a class="text-info" href="editar.pro.php?idProducto=<?php echo $dato -> idProducto; ?>"><i class="bi bi-pen"></a></i></td>
                         <td ><a class="text-danger" href="eliminar.pro.php?idProducto=<?php echo $dato -> idProducto; ?>"><i class="bi bi-trash"></a></i></td>
                     <tr>
@@ -159,10 +157,6 @@
                     <div class="mb-3">
                         <label  class="form-label">Unidad:</label>
                         <input type="number" class="form-control" name="txtunidad" placeholder autofocus require>
-                    </div>
-                    <div class="mb-3">
-                        <label  class="form-label">Imagen:</label>
-                        <input type="file" class="form-control" name="Imagen">
                     </div>
                     <div class="d-grid">
                         <input type="hidden" name="oculto" value="1">

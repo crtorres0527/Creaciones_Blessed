@@ -14,12 +14,12 @@ $precio = $_POST["txtprecio"];
 $codigo = $_POST["txtcodigo"];
 $clasificacion = $_POST["txtclasificacion"];
 $unidad = $_POST["txtunidad"];
-$imagen = addcslashes(file_get_contents($_FILES['Imagen']['tmp_name']),'\\');
 
 
-$sentencia = $bd->prepare("INSERT INTO producto(NombreP, Descripcion, Precio, Codigo, idClasificacion, Unidad,imagen)
- VALUES(?,?,?,?,?,?,?)");
- $resultado = $sentencia->execute([$nombre, $descripcion, $precio, $codigo, $clasificacion, $unidad,$imagen]);
+
+$sentencia = $bd->prepare("INSERT INTO producto(NombreP, Descripcion, Precio, Codigo, idClasificacion, Unidad)
+ VALUES(?,?,?,?,?,?)");
+ $resultado = $sentencia->execute([$nombre, $descripcion, $precio, $codigo, $clasificacion, $unidad]);
  if($resultado === TRUE){
      
      header("Location: index.pro.php?mensaje=exito");
